@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
+import { ToastProvider } from "react-native-toast-notifications";
 import { useLoadedAssets } from "./hooks/useLoadedAssets";
 import Navigation from "./navigation";
 import { useColorScheme } from "react-native";
@@ -16,8 +16,10 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <ToastProvider successColor="#5bbb4f">
+          <Navigation colorScheme={colorScheme} />
+        </ToastProvider>
+        {/* <StatusBar /> */}
       </SafeAreaProvider>
     );
   }
